@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":separateMultipleMajorReleases",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    "schedule:weekdays",
+    ":enablePreCommit",
+    "customManagers:dockerfileVersions",
+    "customManagers:githubActionsVersions",
+    "customManagers:helmChartYamlAppVersions",
+    "customManagers:makefileVersions",
+    "customManagers:mavenPropertyVersions",
+    "customManagers:tfvarsVersions"
+  ],
+  "prTitle": "{{ commitMessage }} in {{packageFile}} {{#upgrades.length>1}}(upgrades: {{ upgrades.length }}){{/upgrades.length>1}}"
+  "dependencyDashboardAutoclose": false,
+  "configMigration": true,
+  "docker": {
+    "pinDigests": false
+  },
+  "updateNotScheduled": false
+}
